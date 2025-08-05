@@ -5,12 +5,17 @@ using PokeApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// database
 builder.Services.AddDbContext<PokeDbContext>(opt =>
 opt.UseSqlite("Data Source=pokedex.db"));
 
+// GraphQL
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 builder.Services.AddCors();
 builder.Services.AddControllers();
-
 
 var app = builder.Build();
 
