@@ -55,4 +55,5 @@ using (var scope = app.Services.CreateScope())
 
 app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 app.MapControllers();
+app.MapGraphQL();
 app.Run();
