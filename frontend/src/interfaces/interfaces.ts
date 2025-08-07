@@ -3,4 +3,5 @@ export default interface Pokemon {
   name: string;
   types: string[];
   trainerNote?: string;
+  imageUrl: string;
 }

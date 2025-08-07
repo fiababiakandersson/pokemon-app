@@ -42,7 +42,8 @@ using (var scope = app.Services.CreateScope())
                 Name = obj["name"]!.ToString(),
                 Types = obj["types"]!
                     .Select(t => t["type"]!["name"]!.ToString())
-                    .ToArray()
+                    .ToArray(),
+                ImageUrl = obj["sprites"]!["front_default"].ToString()
             };
 
             db.Pokemons.Add(pokemon);
