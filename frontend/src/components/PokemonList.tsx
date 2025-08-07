@@ -10,12 +10,18 @@ export default function PokemonList() {
   if (error) return <p>Error!</p>;
 
   return (
-    <ul>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 15,
+      }}
+    >
       {data.pokemons.map((p: Pokemon) => (
         <div key={p.id}>
           <PokemonItem pokemon={p} />
         </div>
       ))}
-    </ul>
+    </div>
   );
 }
