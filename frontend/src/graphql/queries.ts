@@ -11,6 +11,12 @@ export const GET_POKEMONS = gql`
   }
 `;
 
+export const GET_TYPES = gql`
+  query {
+    types
+  }
+`;
+
 export const GET_POKEMON_BY_ID = gql`
   query ($id: Int!) {
     pokemon(id: $id) {
