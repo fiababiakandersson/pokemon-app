@@ -22,23 +22,45 @@ export default function NavigationHeader(props: Props) {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "pink",
-        height: 150,
-      }}
-    >
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel id="demo-select-small-label">Type</InputLabel>
+    <div style={{ backgroundColor: "#dc4151", height: 200 }}>
+      <h4>Filter</h4>
+      <FormControl
+        sx={{
+          m: 1,
+          minWidth: 120,
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              border: "lightGrey 1px solid",
+            },
+            "&.Mui-focused fieldset": {
+              border: "lightGrey 1px solid",
+            },
+            "&:hover fieldset": {
+              border: "lightGrey 1px solid",
+            },
+          },
+        }}
+        size="small"
+      >
+        <InputLabel
+          id="demo-select-small-label"
+          sx={{
+            "&.Mui-focused": {
+              color: "grey",
+            },
+          }}
+        >
+          Type
+        </InputLabel>
+
         <Select
           labelId="demo-select-small-label"
           id="demo-select-small"
           value={props.typeFilter}
-          label="Age"
           onChange={handleChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>All types</em>
           </MenuItem>
           {data.types?.map((type: string, i: number) => (
             <MenuItem key={i} value={type}>
