@@ -33,7 +33,6 @@ export default function PokemonList(props: Props) {
           ))
         : data.pokemons
             .filter((p: Pokemon) => {
-              // var types = p.types.map(type => type.slu)
               return p.types.some((t) => t.includes(props.typeFilter));
             })
             .map((p: Pokemon) => (

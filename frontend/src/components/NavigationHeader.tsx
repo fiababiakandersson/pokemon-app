@@ -29,7 +29,7 @@ export default function NavigationHeader(props: Props) {
       }}
     >
       <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel id="demo-select-small-label">Age</InputLabel>
+        <InputLabel id="demo-select-small-label">Type</InputLabel>
         <Select
           labelId="demo-select-small-label"
           id="demo-select-small"
@@ -42,12 +42,9 @@ export default function NavigationHeader(props: Props) {
           </MenuItem>
           {data.types?.map((type: string, i: number) => (
             <MenuItem key={i} value={type}>
-              {type}
+              {type.charAt(0).toUpperCase() + type.slice(1)}
             </MenuItem>
           ))}
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
     </div>
