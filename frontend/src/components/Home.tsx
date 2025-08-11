@@ -3,8 +3,7 @@ import NavigationHeader from "./NavigationHeader";
 import PokemonList from "./PokemonList";
 
 export default function Home() {
-  //   const typeFilter = useState("");
-  const [typeFilter, setTypeFilter] = useState("fire");
+  const [typeFilter, setTypeFilter] = useState("");
 
   return (
     <div>

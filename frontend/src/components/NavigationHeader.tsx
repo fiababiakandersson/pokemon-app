@@ -2,9 +2,8 @@ import { useQuery } from "@apollo/client";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import * as React from "react";
-import { useEffect } from "react";
 import { GET_TYPES } from "../graphql/queries";
 
 interface Props {
@@ -15,16 +14,10 @@ interface Props {
 export default function NavigationHeader(props: Props) {
   const { data, loading, error } = useQuery(GET_TYPES);
 
-  useEffect(() => {
-    data?.types?.map((d: string) => console.log("type:", d));
-  }, [data, error]);
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
-  const handleChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
+  const handleChange = (event: SelectChangeEvent) => {
     props.setTypeFilter(event.target.value);
   };
 
@@ -48,7 +41,9 @@ export default function NavigationHeader(props: Props) {
             <em>None</em>
           </MenuItem>
           {data.types?.map((type: string, i: number) => (
-            <MenuItem key={i}>{type}</MenuItem>
+            <MenuItem key={i} value={type}>
+              {type}
+            </MenuItem>
           ))}
           {/* <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
